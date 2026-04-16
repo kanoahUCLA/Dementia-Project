@@ -6,7 +6,7 @@ import os
 
 # ── File paths ────────────────────────────────────────────────────────────────
 desktop = os.path.join(os.path.expanduser("~"), "desktop")
-data_dir = os.path.join(desktop, "dementia")
+data_dir = os.path.join(desktop, "dementia",'MUST DOWNLOAD')
 ptinfo  = pd.read_csv(os.path.join(data_dir, "ptinfo.csv"))
 
 # ── Filter settings ───────────────────────────────────────────────────────────

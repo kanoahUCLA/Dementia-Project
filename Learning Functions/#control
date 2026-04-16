@@ -1,0 +1,45 @@
+"""
+get_control_patients.py
+=======================
+Identifies control (Nondemented) patients from final_results_ptinfo.csv.
+
+Usage
+-----
+    python get_control_patients.py
+"""
+
+import os
+import pandas as pd
+
+DATA_PATH = "/Users/noahst.clair/Desktop/dementia/Final Results/final_results_ptinfo.csv"
+
+
+def get_control_patients(pt_path: str = DATA_PATH) -> pd.DataFrame:
+    """
+    Returns all control (Nondemented) patients from ptinfo.
+
+    Parameters
+    ----------
+    pt_path : Path to final_results_ptinfo.csv
+
+    Returns
+    -------
+    pd.DataFrame
+        Rows where Group == 'Nondemented'
+    """
+
+    df = pd.read_csv(pt_path)
+
+    controls = df[df["Group"] == "Nondemented"].copy()
+
+    print(f"Total subjects        : {df['Subject ID'].nunique()}")
+    print(f"Control subjects      : {controls['Subject ID'].nunique()}")
+    print(f"Control rows (visits) : {len(controls)}")
+
+    return controls
+
+
+if __name__ == "__main__":
+    controls = get_control_patients()
+    print()
+    print(controls[["Subject ID", "Group", "Age", "MMSE", "CDR"]].head(10).to_string(index=False))

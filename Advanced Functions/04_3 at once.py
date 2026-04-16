@@ -7,7 +7,7 @@ from matplotlib.lines import Line2D
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 desktop  = os.path.join(os.path.expanduser("~"), "Desktop")
-data_dir = os.path.join(desktop, "dementia")
+data_dir = os.path.join(desktop, "dementia", "MUST DOWNLOAD")
 
 OASIS1_PATH = os.path.join(data_dir, "oasis1.csv")
 OASIS2_PATH = os.path.join(data_dir, "ptinfo.csv")
