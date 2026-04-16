@@ -1,7 +1,7 @@
 Hey Brain Wave Research Members this repository acts as a storage point for our dementia project. Here you will find inmportant information and functions:
-            **Final Results**: This holds the cortical measurements across all the patients in the OASIS dataset
-            **Functions**: This holds prewritten code that can be used to anaylze the dataset to give you an idea of what kind of figures you can produce
-            **PT**: Holds all the information related to this study and 
+**Final Results**: This holds the cortical measurements across all the patients in the OASIS dataset
+**Functions**: This holds prewritten code that can be used to anaylze the dataset to give you an idea of what kind of figures you can produce
+**PT**: Holds all the information related to the patients in this study 
 
 **What is this dataset**: The OASIS (Open Access Series of Imaging Studies) is a publicly available neuroimaging dataset 
 designed to study brain aging and Alzheimer’s disease using structural and functional MRI.
