@@ -1,0 +1,66 @@
+import pandas as pd
+import os
+
+COLS = [
+    'Left-Hippocampus',
+    'Right-Hippocampus',
+    'EstimatedTotalIntraCranialVol',
+    'BrainSegVol',
+    'TotalGrayVol',
+    'SubCortGrayVol',
+    'BrainSegVol-to-eTIV'
+]
+
+# ── UPDATED PATH ────────────────────────────────────────────────────────
+DATA_DIR = '/Users/noahst.clair/Desktop/dementia/Hippocampus_Team/Raw_Data'
+
+CONTROL_PATH  = os.path.join(DATA_DIR, 'control_data.csv')
+DEMENTIA_PATH = os.path.join(DATA_DIR, 'dementia_data.csv')
+
+CONTROL_OUT   = os.path.join(DATA_DIR, 'control_extracted.csv')
+DEMENTIA_OUT  = os.path.join(DATA_DIR, 'dementia_extracted.csv')
+
+
+def extract_features(input_path, output_path):
+    read_attempts = [
+        {'sep': ','},
+        {'sep': '\t'},
+        {'sep': r'\s+', 'engine': 'python'}
+    ]
+
+    df = None
+
+    for kwargs in read_attempts:
+        try:
+            trial = pd.read_csv(input_path, index_col=0, **kwargs)
+            if len(trial.columns) > 1:
+                df = trial
+                break
+        except Exception:
+            pass
+
+    if df is None:
+        raise ValueError(f"Could not parse {input_path}")
+
+    df.index.name = 'SubjectID'
+    df = df[df.index.astype(str) != 'Measure:volume']
+    df.columns = df.columns.astype(str).str.strip()
+
+    print(f"\n[{input_path}] columns:")
+    print(df.columns.tolist())
+
+    missing = [c for c in COLS if c not in df.columns]
+    if missing:
+        raise ValueError(f"Missing columns: {missing}")
+
+    extracted = df[COLS].copy()
+
+    extracted.to_csv(output_path)
+    print(f"[OK] Saved → {output_path}")
+
+    return extracted
+
+
+# ── RUN ────────────────────────────────────────────────────────────────
+dementia_df = extract_features(DEMENTIA_PATH, DEMENTIA_OUT)
+control_df  = extract_features(CONTROL_PATH,  CONTROL_OUT)
