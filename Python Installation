@@ -1,0 +1,60 @@
+MAC ========
+
+# --- INSTALL PYTHON (run in Terminal, not VS Code) ---
+
+python3 --version || echo "Python is not installed"
+
+# If NOT installed:
+# 1. Go to https://www.python.org/downloads/
+# 2. Download "Python 3.x" for macOS
+# 3. Run the installer (.pkg)
+
+python3 --version
+
+# --------------------------------------
+
+# --- SETUP (run in VS Code terminal) ---
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+python3 -m pip install --upgrade pip
+
+pip install pandas numpy matplotlib scipy seaborn statsmodels scikit-learn
+
+python -c "import pandas, numpy, matplotlib, scipy, seaborn; print('Setup successful')"
+python -c "import sys; print(sys.executable)"
+
+# --------------------------------------
+WINDOWS ==========
+
+# --- INSTALL PYTHON (run in browser + installer) ---
+
+# Check if Python is installed
+py --version
+
+# If NOT installed:
+# 1. Go to https://www.python.org/downloads/windows/
+# 2. Download "Python 3.x"
+# 3. Run installer
+#    IMPORTANT: Check "Add Python to PATH"
+# 4. Click "Install Now"
+
+# Restart VS Code after install
+
+# Verify installation
+py --version
+
+# --------------------------------------
+# --- SETUP (run in VS Code terminal) ---
+
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+
+pip install pandas numpy matplotlib scipy seaborn statsmodels scikit-learn
+
+python -c "import pandas, numpy, matplotlib, scipy, seaborn; print('Setup successful')"
+
+# --------------------------------------
