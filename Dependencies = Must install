@@ -1,0 +1,57 @@
+MAC ==========
+
+# --- SETUP (run in VS Code terminal) ---
+
+python3 --version || echo "Python is not installed"
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+python -m pip install --upgrade pip
+
+pip install pandas numpy matplotlib scipy seaborn statsmodels scikit-learn
+
+python -c "import pandas, numpy, matplotlib, scipy, seaborn; print('Setup successful')"
+
+# --------------------------------------
+
+THEN =============
+
+In VS Code:
+Press Cmd+Shift+P → "Python: Select Interpreter" → choose .venv
+
+# If .venv does not appear in VS Code:
+# 1. Run: py -m venv .venv
+# 2. Restart VS Code
+# 3. Open the project folder (not just a file)
+# 4. Press Cmd+Shift+P → Python: Select Interpreter → choose .venv
+
+# --------------------------------------
+
+WINDOWS = ==========
+
+# --- SETUP (run in VS Code terminal) ---
+
+py --version
+
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+
+pip install pandas numpy matplotlib scipy seaborn statsmodels scikit-learn
+
+python -c "import pandas, numpy, matplotlib, scipy, seaborn; print('Setup successful')"
+
+# --------------------------------------
+
+THEN =============
+
+In VS Code:
+Press Cntrl +Shift+P → "Python: Select Interpreter" → choose .venv\Scripts\python.exe
+
+# If .venv does not appear in VS Code:
+# 1. Run: py -m venv .venv
+# 2. Restart VS Code
+# 3. Open the project folder (not just a file)
+# 4. Press Ctrl+Shift+P → Python: Select Interpreter → choose .venv

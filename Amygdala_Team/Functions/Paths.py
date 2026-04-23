@@ -11,5 +11,7 @@ else:
 
 CONTROL_PATH = BASE_DIR / "Amygdala_Team" / "Raw_Data" / "amygdala_control.csv"
 DEMENTIA_PATH = BASE_DIR / "Amygdala_Team" / "Raw_Data" / "amygdala_dementia.csv"
+PTINFO_PATH = BASE_DIR / "ptinfo.csv"
+
 OUTPUT_PATH = BASE_DIR / "Amygdala_Team" / "Output"
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
